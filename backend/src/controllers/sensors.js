@@ -16,7 +16,7 @@ exports.list = async (ctx) => {
 exports.create = async (ctx) => {
   const params = ctx.request.body;
 
-  const sensor = await database.Sensor.create({temperature: params.temperature});
+  const sensor = await database.Sensor.create({temperature: params.temperature, humidity: params.humidity});
 
   ctx.body = await sensor.toJSON();
   ctx.status = 201;
